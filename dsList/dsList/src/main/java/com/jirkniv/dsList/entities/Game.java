@@ -28,13 +28,17 @@ public class Game {
     private String platforms;
     private double score;
     private String imgUrl;
-    private String shortDescriptin;
-    private String longDescriptin;
+    
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+    
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
 
     public Game() {
     }
 
-    public Game(Long id, String title, int year, String genre, String platforms, double score, String imgUrl, String shortDescriptin, String longDescriptin) {
+    public Game(Long id, String title, int year, String genre, String platforms, double score, String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -42,8 +46,8 @@ public class Game {
         this.platforms = platforms;
         this.score = score;
         this.imgUrl = imgUrl;
-        this.shortDescriptin = shortDescriptin;
-        this.longDescriptin = longDescriptin;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
     }
 
     public String getGenre() {
@@ -58,8 +62,8 @@ public class Game {
         return imgUrl;
     }
 
-    public String getLongDescriptin() {
-        return longDescriptin;
+    public String getLongDescription() {
+        return longDescription;
     }
 
     public String getPlatforms() {
@@ -70,8 +74,8 @@ public class Game {
         return score;
     }
 
-    public String getShortDescriptin() {
-        return shortDescriptin;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
     public String getTitle() {
@@ -94,8 +98,8 @@ public class Game {
         this.imgUrl = imgUrl;
     }
 
-    public void setLongDescriptin(String longDescriptin) {
-        this.longDescriptin = longDescriptin;
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 
     public void setPlatforms(String platforms) {
@@ -110,8 +114,8 @@ public class Game {
         this.title = title;
     }
 
-    public void setShortDescriptin(String shortDescriptin) {
-        this.shortDescriptin = shortDescriptin;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
     public void setYear(int year) {
