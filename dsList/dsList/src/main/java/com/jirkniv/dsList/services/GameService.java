@@ -7,6 +7,7 @@ package com.jirkniv.dsList.services;
 import com.jirkniv.dsList.dto.GameDTO;
 import com.jirkniv.dsList.dto.GameMinDTO;
 import com.jirkniv.dsList.entities.Game;
+import com.jirkniv.dsList.projections.GameMinProjection;
 import com.jirkniv.dsList.repositories.GameRepository;
 import jakarta.persistence.Id;
 import java.util.List;
@@ -29,9 +30,12 @@ public class GameService {
     @Transactional(readOnly = true)
     public List<GameMinDTO> findAll(){
         List<Game> result = gameRepository.findAll();
-        List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
-        
-        return dto;
+        return result.stream().map(x -> new GameMinDTO(x)).toList();
     }
+    
+    public List<GameMinDTO> findByList(Long listId){
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
+        return result.stream().map(x -> new GameMinDTO (x)).toList()
+;    }
     
 }

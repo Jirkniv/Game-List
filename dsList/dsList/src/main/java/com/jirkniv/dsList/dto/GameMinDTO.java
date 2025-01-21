@@ -5,6 +5,7 @@
 package com.jirkniv.dsList.dto;
 
 import com.jirkniv.dsList.entities.Game;
+import com.jirkniv.dsList.projections.GameMinProjection;
 
 /**
  *
@@ -28,6 +29,13 @@ public class GameMinDTO {
         shortDescription = entity.getShortDescription();
     }
 
+     public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
+    }
     public String getImgUrl() {
         return imgUrl;
     }
